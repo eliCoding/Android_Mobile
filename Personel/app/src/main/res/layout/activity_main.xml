@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.jacques.personel.MainActivity">
+
+    <EditText
+        android:id="@+id/etName"
+        android:layout_width="309dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:hint="@string/first_last_name"
+        android:inputType="textPersonName"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="24dp"
+        tools:layout_editor_absoluteY="18dp"
+        tools:layout_editor_absoluteX="38dp" />
+
+    <EditText
+        android:id="@+id/etAge"
+        android:layout_width="308dp"
+        android:layout_height="47dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="@string/age"
+        android:inputType="number"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etName"
+        app:layout_constraintHorizontal_bias="0.512"
+        tools:layout_editor_absoluteY="73dp"
+        tools:layout_editor_absoluteX="40dp" />
+
+    <RadioGroup
+        android:id="@+id/rgSex"
+        android:layout_width="315dp"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etAge">
+
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.17"
+            android:checked="true"
+            android:text="Male" />
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Female" />
+
+        <RadioButton
+            android:id="@+id/rbNA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="N/A" />
+    </RadioGroup>
+
+    <CheckBox
+        android:id="@+id/ckDog"
+        android:layout_width="73dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="16dp"
+        android:text="Dog"
+        app:layout_constraintTop_toBottomOf="@+id/rgSex"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/ckCat"
+        android:layout_marginRight="16dp"
+        app:layout_constraintHorizontal_bias="0.261" />
+
+    <CheckBox
+        android:id="@+id/ckOthers"
+        android:layout_width="89dp"
+        android:layout_height="28dp"
+        android:layout_marginRight="16dp"
+        android:text="Others"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/rgSex" />
+
+    <CheckBox
+        android:id="@+id/ckCat"
+        android:layout_width="74dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/cat"
+        app:layout_constraintTop_toBottomOf="@+id/rgSex"
+        app:layout_constraintRight_toLeftOf="@+id/ckOthers"
+        android:layout_marginRight="41dp" />
+
+    <Button
+        android:id="@+id/btSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onTellMeClick"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sbAvg" />
+
+    <ToggleButton
+        android:id="@+id/tbVegeterian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="15dp"
+        android:text="Reget"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ckCat" />
+
+    <SeekBar
+        android:id="@+id/sbAvg"
+        android:layout_width="220dp"
+        android:layout_height="37dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:max="150"
+        android:progress="75"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbVegeterian" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="91dp"
+        android:layout_height="51dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:editable="false"
+        android:ems="10"
+        android:freezesText="true"
+        android:inputType="textPersonName"
+        android:labelFor="@+id/tbVegeterian"
+        android:text="Name"
+        app:layout_constraintRight_toLeftOf="@+id/tbVegeterian"
+        app:layout_constraintTop_toBottomOf="@+id/ckDog" />
+
+
+</android.support.constraint.ConstraintLayout>

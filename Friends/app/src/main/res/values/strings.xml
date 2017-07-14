@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Friends</string>
+    <string name="add_friend">Add Friend</string>
+    <string name="add">Add</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="not_available">N/A</string>
+</resources>

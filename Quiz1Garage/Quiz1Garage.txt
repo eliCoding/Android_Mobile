@@ -1,0 +1,63 @@
+Android Quiz 1 
+==============
+
+Create Android project Quiz1Garage.
+
+Your app will have two Activities: MainActivity and AddCarActivity.
+Additional classes: Globals, Car.
+
+Class Car
+---------
+
+class Car {
+String makeModel;
+int odometer; // in thousands of kilometers 0 - 500
+int yearOfProduction; // integer 1900-2100
+BodyType bodyType; // Enum { Van, Coupe, Convertible, FullSize, Compact }
+boolean isElectric;
+
+public String serialize() throws IOException {}
+public deserialize(String data) throws IOException {}
+}
+
+
+Class Globals
+-------------
+
+class Globals {
+public static final ArrayList<Car> carList = new ArrayList<>();
+public static saveData(Context context) throws IOException {}
+public static loadData(Context context) throws IOException {}
+}
+
+
+MainActivity
+------------
+
+MainActivity will have one main content - ListView, like we did in class.
+It will also have a menu with always-visible item "Add" in right top corner.
+No long click and no regular click is handled, only Add.
+
+
+Notes
+-----
+
+Follow best practices of Java programming and Android programming you learned about so far, such as creation and naming of bindings, using constraints in UI, etc.
+
+When handling exceptions and other errors you must properly propagate and handle the exeption, and inform the user using Toast if appropriate.
+
+There are NO Dialogs in this app.
+
+You must Log.d() major events, and Log.wtf() fatal problems.
+
+Your app must loadData when started and saveData after every change, meaning:
+- in MainActivity.onStart() you must call loadData()
+- in AddCarActivity after you add Car to Globals.carsList you must saveData()
+
+What to submit
+--------------
+
+ZIP file of your entire project.
+
+
+

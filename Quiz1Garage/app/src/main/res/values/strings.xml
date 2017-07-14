@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Quiz 1 Garage</string>
+    <string name="compact">compact</string>
+    <string name="fullsize">FullSize</string>
+    <string name="Convertible">convertible</string>
+    <string name="Coupe">coupe</string>
+    <string name="Van">van</string>
+    <string name="Year">year</string>
+    <string name="Model">model</string>
+    <string name="AddCar">addcar</string>
+</resources>
