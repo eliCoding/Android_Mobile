@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
-public class AddEditActivity extends AppCompatActivity {
+public class AddEditActivity extends LivecycleTrackingActivity {
 
     private static final String TAG = "AddEditActivity";
 
@@ -56,7 +56,9 @@ public class AddEditActivity extends AppCompatActivity {
         // if extra is absent then assume it was -1
         int currentIndex = intent.getIntExtra(MainActivity.EXTRA_INDEX, -1);
         if (currentIndex != -1) {
-            button.setText("Save");
+            String hw = getResources().getString(R.string.Save);
+            button.setText(hw);
+
             // load the data of edited item
             currentFriend = Globals.friendsList.get(currentIndex);
             etName.setText(currentFriend.name);
@@ -97,6 +99,8 @@ public class AddEditActivity extends AppCompatActivity {
         if (currentFriend == null) {
             Globals.friendsList.add(friend);
         }
+
+
         // save changes to file
         try {
             Globals.saveData(this);
@@ -104,7 +108,8 @@ public class AddEditActivity extends AppCompatActivity {
             Toast.makeText(this, "Error saving data", Toast.LENGTH_LONG).show();
         }
         // show toast
-        Toast.makeText(this, "Friend added", Toast.LENGTH_SHORT).show();
+        String toastAdd = getResources().getString(R.string.ToastAdd);
+        Toast.makeText(this, toastAdd, Toast.LENGTH_SHORT).show();
         // finish(), do NOT use Intent to go back to MainActivity
         finish();
     }

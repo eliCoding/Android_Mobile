@@ -6,4 +6,13 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="not_available">N/A</string>
+    <string name="Dog">dog</string>
+    <string name="Cat">cat</string>
+    <string name="Pigs">pigs</string>
+    <string name="GoldFish">goldfish</string>
+    <string name="Name">name</string>
+    <string name="Save">save</string>
+    <string name="ToastAdd">FriendAdded</string>
 </resources>
+
+

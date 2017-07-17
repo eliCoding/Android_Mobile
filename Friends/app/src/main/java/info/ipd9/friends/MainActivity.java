@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends LivecycleTrackingActivity {
 
     private static final String TAG = "MainActivity";
     public static final String EXTRA_INDEX = "index";
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
     }
 
     @Override
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             Globals.loadData(this);
         } catch (IOException e) {
+
             Toast.makeText(this, "Error loading data", Toast.LENGTH_LONG).show();
         }
         adapter.notifyDataSetChanged();
