@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">copains</string>
+    <string name="Dog">chien</string>
+    <string name="add">ajouter</string>
+    <string name="add_friend">Ajouter un ami</string>
+    <string name="female">femelle</string>
+    <string name="male">mâle</string>
+    <string name="not_available">N/A</string>
+    <string name="vegetarian">végétarien</string>
+    <string name="Cat">chat</string>
+    <string name="Pigs">porc</string>
+    <string name="GoldFish">poisson rouge</string>
+    <string name="Name">nom</string>
+    <string name="Save">enregistrer</string>
+    <string name="ToastAdd">Ami ajouté</string>
+</resources>

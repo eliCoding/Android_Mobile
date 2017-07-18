@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add">اضافه</string>
+    <string name="add_friend">اضافه کردن دوست</string>
+    <string name="female">زن</string>
+    <string name="male">مرد</string>
+    <string name="not_available">مشخص کردن</string>
+    <string name="vegetarian">گیاه خوار</string>
+    <string name="app_name">دوستان</string>
+    <string name="Dog">سگ</string>
+</resources>

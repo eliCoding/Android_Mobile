@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Przyjaciele</string>
+    <string name="friend_format" formatted="false">%s jest %d jest %s</string>
+    <string name="vegetarian">Wegetarian</string>
+    <string name="not_available">Nie zdeklarowany</string>
+    <string name="female">Kobieta</string>
+    <string name="male">Mezczyzna</string>
+    <string name="add_friend">Dodaj przyjaciela</string>
+    <string name="add">Dodaj</string>
+    <string name="save">Zapisz</string>
+    <string name="error_saving_data">Blad zapisu danych</string>
+    <string name="friend_added">Przyjaciel dodany</string>
+    <string name="error_loading_data">Blad odczytu danych</string>
+    <string name="name">Imie</string>
+</resources>
