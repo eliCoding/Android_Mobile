@@ -28,6 +28,8 @@ public class AddEditActivity extends LivecycleTrackingActivity {
 
     private Friend currentFriend;
 
+    Button btAddSave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +44,23 @@ public class AddEditActivity extends LivecycleTrackingActivity {
         cbPigs = (CheckBox) findViewById(R.id.cbPigs);
         rgGender = (RadioGroup) findViewById(R.id.rgGender);
         // Example on how to add onClick handler programmatically
-        Button button = (Button) findViewById(R.id.btAddSave);
-        button.setOnClickListener(new View.OnClickListener() {
+        btAddSave = (Button) findViewById(R.id.btAddSave);
+        btAddSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onAddSaveClick(v);
             }
         });
+    }
+
+    private Database database;
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart()");
+        database = Database.openDatabase(this);
+        // load data here, not in onCreate
         // Check if Extra with index was provided, if yes, load data from ArrayList[index] into UI
         Intent intent = getIntent();
         // if extra is absent then assume it was -1
@@ -58,7 +70,7 @@ public class AddEditActivity extends LivecycleTrackingActivity {
             try {
                 // pull translation from strings.xml in current language of the device
                 String saveString = getResources().getString(R.string.save);
-                button.setText(saveString);
+                btAddSave.setText(saveString);
                 // load the data of edited item
                 currentFriend = database.getFriendById(this, currentId);
                 etName.setText(currentFriend.name);
@@ -89,15 +101,7 @@ public class AddEditActivity extends LivecycleTrackingActivity {
                 Toast.makeText(this, errorString, Toast.LENGTH_LONG).show();
             }
         }
-    }
 
-    private Database database;
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart()");
-        database = Database.openDatabase(this);
     }
 
     @Override
@@ -120,16 +124,20 @@ public class AddEditActivity extends LivecycleTrackingActivity {
         try {
             if (currentFriend == null) {
                 database.addFriend(friend);
+                // show toast
+                String friendAddedString = getResources().getString(R.string.friend_added);
+                Toast.makeText(this, friendAddedString, Toast.LENGTH_SHORT).show();
             } else {
                 database.updateFriend(friend);
+                // show toast
+                String friendUpdatedString = getResources().getString(R.string.friend_updated);
+                Toast.makeText(this, friendUpdatedString, Toast.LENGTH_SHORT).show();
             }
         } catch (SQLException e) {
             String errorString = getResources().getString(R.string.error_saving_data);
             Toast.makeText(this, errorString, Toast.LENGTH_LONG).show();
         }
-        // show toast
-        String friendAddedString = getResources().getString(R.string.friend_added);
-        Toast.makeText(this, friendAddedString, Toast.LENGTH_SHORT).show();
+
         // finish(), do NOT use Intent to go back to MainActivity
         finish();
     }

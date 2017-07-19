@@ -13,4 +13,5 @@
     <string name="friend_added">Przyjaciel dodany</string>
     <string name="error_loading_data">Blad odczytu danych</string>
     <string name="name">Imie</string>
+    <string name="friend_updated">Przyjaciel uaktualniony</string>
 </resources>

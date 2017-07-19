@@ -39,6 +39,12 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
+    // Safety measure to make sure programmer doesn't call close() by mistake
+    @Override
+    public void close()  {
+        Database.closeDatabase();
+        // throw new RuntimeException("Do NOT call close(), use closeDatabase() instead");
+    }
 
     private static final String TAG = "Database";
 

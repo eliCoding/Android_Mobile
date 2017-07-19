@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -79,7 +80,8 @@ public class MainActivity extends LivecycleTrackingActivity {
     public void onStop() {
         super.onStop();
         Log.d(TAG, "onStop()");
-        Database.closeDatabase();
+        database.close();
+        // Database.closeDatabase();
     }
 
     @Override

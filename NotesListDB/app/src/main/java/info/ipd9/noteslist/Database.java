@@ -3,17 +3,14 @@ package info.ipd9.noteslist;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.security.InvalidParameterException;
+import android.database.SQLException;
 import java.util.ArrayList;
 
-/**
- * Created by ipd on 7/18/2017.
- */
 
 public class Database extends SQLiteOpenHelper {
 
@@ -42,26 +39,22 @@ public class Database extends SQLiteOpenHelper {
         }
     }
 
-
-    //safety measure to make sure programmer doesnot call close() by mistake
+    // Safety measure to make sure programmer doesn't call close() by mistake
     @Override
-    public void close() {
-
-        database.closeDatabase();
-
+    public void close()  {
+        Database.closeDatabase();
+        // throw new RuntimeException("Do NOT call close(), use closeDatabase() instead");
     }
-
 
     private static final String TAG = "Database";
 
     private static final String DATABASE_FILE = "notes.sqlite";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String SQL_CREATE_FRIENDS_TABLE =
+    private static final String SQL_CREATE_NOTES_TABLE =
             "CREATE TABLE " + Note.TABLE_NAME + " ( " +
                     Note.COLUMN_ID + " INTEGER PRIMARY KEY, " +
-                    Note.COLUMN_NOTE + " TEXT, " +
-                    " )";
+                    Note.COLUMN_NOTE + " TEXT " + " )";
 
     private Database(Context context) {
         super(context, DATABASE_FILE, null, DATABASE_VERSION);
@@ -71,7 +64,7 @@ public class Database extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.d(TAG, "onCreate()");
-        db.execSQL(SQL_CREATE_FRIENDS_TABLE);
+        db.execSQL(SQL_CREATE_NOTES_TABLE);
     }
 
     @Override
@@ -84,18 +77,15 @@ public class Database extends SQLiteOpenHelper {
     public void addNote(Note note) throws SQLException {
         ContentValues values = new ContentValues();
         values.put(Note.COLUMN_NOTE, note.note); // Contact Name
-
-
         // Inserting Row
         connection.insert(Note.TABLE_NAME, null, values);
     }
 
-    private String [] NOTES_COLUMNS_ALL = {
-            Note.COLUMN_ID, Note.COLUMN_NOTE
-    };
+    private String [] NOTE_COLUMNS_ALL = {
+            Note.COLUMN_ID, Note.COLUMN_NOTE   };
 
     public ArrayList<Note> getAllNotes() throws SQLException {
-        Cursor cursor = connection.query(Note.TABLE_NAME, NOTES_COLUMNS_ALL,
+        Cursor cursor = connection.query(Note.TABLE_NAME, NOTE_COLUMNS_ALL,
                 null, null, null, null, null, null);
 
         ArrayList<Note> notesList = new ArrayList<>();
@@ -104,49 +94,42 @@ public class Database extends SQLiteOpenHelper {
                 // context required for translation
                 Note note = new Note();
                 note.id = Integer.parseInt(cursor.getString(0));
-                note.note= cursor.getString(1);
-
-                //
+                note.note = cursor.getString(1);
                 notesList.add(note);
             } while (cursor.moveToNext());
         }
         return notesList;
     }
-
-   /* public Note getNotesById(int id) throws SQLException {
-        Cursor cursor = connection.query(Note.TABLE_NAME, NOTES_COLUMNS_ALL,
-                Note.COLUMN_ID + "=?", new String[] { String.valueOf(id) },
+/*
+    public Friend getFriendById(Context context, int id) throws SQLException {
+        Cursor cursor = connection.query(Friend.TABLE_NAME, FRIEND_COLUMNS_ALL,
+                Friend.COLUMN_ID + "=?", new String[] { String.valueOf(id) },
                 null, null, null, null);
         if (cursor != null)
             cursor.moveToFirst();
 
-        Note note = new Note();
-        note.id = Integer.parseInt(cursor.getString(0));
-        note.note = cursor.getString(1);
-
+        Friend friend = new Friend(context);
+        friend.id = Integer.parseInt(cursor.getString(0));
+        friend.name = cursor.getString(1);
+        friend.age = Integer.parseInt(cursor.getString(2));
+        // TODO: handle other columns
+        friend.gender = Friend.Gender.Undeclared;
         //
-        return note;
-    }*/
+        return friend;
+    } */
 
     public int updateNote(Note note) {
         ContentValues values = new ContentValues();
         values.put(Note.COLUMN_NOTE, note.note); // Contact Name
-
         // updating row
         return connection.update(Note.TABLE_NAME, values, Note.COLUMN_ID + " = ?",
                 new String[] { String.valueOf(note.id) });
     }
 
+    // Deleting single contact
     public void deleteNote(Note note) {
-
-        connection.delete(Note.TABLE_NAME,Note.COLUMN_ID + " = ?",
-
-                new String[] { String.valueOf(note.id
-                )});
-
+        connection.delete(Note.TABLE_NAME, Note.COLUMN_ID + " = ?",
+                new String[] { String.valueOf(note.id) });
     }
-
-
-
 
 }

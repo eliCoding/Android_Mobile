@@ -12,4 +12,5 @@
     <string name="friend_added">Friend added</string>
     <string name="error_loading_data">Error loading data</string>
     <string name="name">Name</string>
+    <string name="friend_updated">Friend updated</string>
 </resources>
