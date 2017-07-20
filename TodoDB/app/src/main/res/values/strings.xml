@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">TodoDB</string>
+    <string name="add">Add</string>
+    <string name="task_description">Task description</string>
+    <string name="is_done">Is done</string>
+    <string name="task_format_string" formatted="false">%s is due on %s (%s)</string>
+    <string name="error_saving_data">Error saving data</string>
+    <string name="todo_added">Todo added</string>
+    <string name="error_loading_data">Error loading data</string>
+    <string name="todo_updated">Todo updated</string>
+    <string name="save">Save</string>
+</resources>

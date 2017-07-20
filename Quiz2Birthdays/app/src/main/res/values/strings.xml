@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quiz 2 Birthdays</string>
+    <string name="add">Add</string>
+
+    <string name="error_saving_data">Error saving data</string>
+    <string name="birthday_added">Birthday added</string>
+    <string name="error_loading_data">Error loading data</string>
+
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+</resources>

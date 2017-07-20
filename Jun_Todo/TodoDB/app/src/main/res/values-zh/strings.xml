@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">待办事项</string>
+    <string name="add_todoItem">增加待办事项</string>
+    <string name="todoItem_format" formatted="false">%s 于 %s %s</string>
+    <string name="add">增加</string>
+    <string name="delete">删除</string>
+    <string name="delete_todo">删除待办事项</string>
+    <string name="cancel">取消</string>
+    <string name="save">保存</string>
+    <string name="error_loading_data">数据加载错误</string>
+    <string name="error_saving_data">数据保存错误</string>
+    <string name="todoItem_added">待办事项已添加</string>
+    <string name="todoItem_updated">待办事项已更新</string>
+    <string name="todoItem_DeletedError">数据库删除错误</string>
+    <string name="action">行动</string>
+    <string name="isDone">已完成</string>
+    <string name="done">已完成</string>
+    <string name="notDone">未完成</string>
+</resources>

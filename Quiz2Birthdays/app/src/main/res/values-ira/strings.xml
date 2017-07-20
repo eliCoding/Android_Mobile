@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add">اضافه کردن</string>
+    <string name="birthday_added">تولد اضافه شد</string>
+    <string name="error_loading_data">ارور</string>
+    <string name="error_saving_data">ارور</string>
+    <string name="name">اسم</string>
+    <string name="save">حذف شد</string>
+</resources>

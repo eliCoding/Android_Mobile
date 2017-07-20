@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TodoDB</string>
+    <string name="add">Dodaj</string>
+    <string name="is_done">Zrobione</string>
+    <string name="task_description">Opis zadania</string>
+    <string name="save">Zapisz</string>
+</resources>
