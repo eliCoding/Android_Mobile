@@ -124,18 +124,41 @@ public class AddActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.mi_save_birthday: {
                 Log.d(TAG, "Menu item Save selected");
-               /* Intent intent = new Intent(this,MainActivity.class);
-                startActivity(intent);*/
-               finish();
+                Birthday dob = (currentBirthday == null) ? new Birthday() : currentBirthday;
+                dob.name = etName.getText().toString();
+                int year = dpDob.getYear() - 1900;
+                int month = dpDob.getMonth();
+                int dom = dpDob.getDayOfMonth();
+                dob.dob = new Date(year, month, dom);
+
+                // add or save data
+                try {
+                    if (currentBirthday == null) {
+                        database.addBirthday(dob);
+                        // show toast
+                        String friendAddedString = getResources().getString(R.string.birthday_added);
+                        Toast.makeText(this, friendAddedString, Toast.LENGTH_SHORT).show();
+                    }
+                } catch (SQLException e) {
+                    String errorString = getResources().getString(R.string.error_saving_data);
+                    Toast.makeText(this, errorString, Toast.LENGTH_LONG).show();
+
+                }
             }
+            finish();
             return true;
+
             default:
                 return super.onOptionsItemSelected(item);
+
         }
+
+
     }
 
 
